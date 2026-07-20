@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.runtime.onInstalled.addListener((e=>{"install"===e.reason?console.log("ChessMint extension installed"):"update"===e.reason&&console.log("ChessMint extension updated")})),chrome.runtime.onStartup.addListener((()=>{console.log("ChessMint browser started")}))})();
