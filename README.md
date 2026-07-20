@@ -1,14 +1,4 @@
-##  IMPORTANT: Unfortunately, due to a lack of interest, I can no longer maintain this project. Please consider using [BetterMint](https://github.com/BotSolver/BetterMint) instead.
-
-------------------
-<p align="center">
-    <img width="350" src="/img/logo-h.png">
-    <br><br>
-    <a href="https://discord.gg/T3PmKS75M2"><img alt="Join ChessMint discord!" src="https://img.shields.io/badge/Discord-ChessMint-0?style=flat&logo=discord"></a>
-    <a href="https://github.com/thedemons/ChessMint/releases"><img alt="Download ChessMint" src="https://img.shields.io/github/downloads/thedemons/ChessMint/total?color=%2331c754&label=Download&logo=googlechrome&logoColor=%23ffffff"></a>
-</p>
-
-# ChessMint
+# cool mint
 A chess.com extension for analyzing your game during play!
 
 ## Features
@@ -40,7 +30,7 @@ This extension is only for chrome at the moment, support for firefox browsers is
 
 I haven't uploaded it onto the chrome store, you must install it manually by following the steps below:
 
-- Download the extension and extract it: [v1.0.0](https://github.com/thedemons/ChessMint/releases/download/v1.0.0/ChessMint.zip)
+- Download the extension and extract it: [v1.0.0](https://github.com/akatsukixpain12-stack/coolmint-modded/releases/download/v1.0.0/cool-mint.zip)
 - Go to the Extensions page by entering `chrome://extensions` in a new tab, or go to the `Manage extensions` page.
 - On the top right corner, you should see an option named `Developer mode`, enable it.
 - A button named `Load unpacked` will show up in the top left corner, click it.
@@ -57,8 +47,11 @@ npm i -g typescript
 ``` 
 Clone this repo and build it:
 ```none
-git clone https://github.com/thedemons/ChessMint.git
-cd ChessMint
+git clone https://github.com/akatsukixpain12-stack/coolmint-modded.git
+cd coolmint-modded
 npm i
 npm run build
 ```
+
+## Repository
+https://github.com/akatsukixpain12-stack/coolmint-modded.git
