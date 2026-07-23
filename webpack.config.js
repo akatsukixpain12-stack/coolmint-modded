@@ -1,12 +1,18 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
     mode: "production",
     entry: {
         background: "./src/background.ts",
+        chessmint: "./src/chessmint.ts",
+        interfaces: "./src/interfaces.ts",
+        loader: "./src/loader.ts",
+        options: "./src/options.ts",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].js",
+        filename: "js/[name].js",
     },
     resolve: {
         extensions: [".ts", ".js"],
@@ -20,4 +26,11 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: "public", to: "." },
+            ],
+        }),
+    ],
 };
