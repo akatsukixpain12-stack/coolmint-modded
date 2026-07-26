@@ -1,14 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "cool mint",
-    "short_name": "cool mint",
+    "name": "ChessMint",
+    "short_name": "ChessMint",
     "icons": {
         "16": "img/logo-16.png",
         "48": "img/logo-48.png",
         "128": "img/logo-128.png"
     },
     "version": "1.0.0",
-    "description": "Help you with chess",
+    "description": "An extension for Chess.com, Lichess.org, and WorldChess.com.",
     "background": {
         "service_worker": "js/background.js"
     },
