@@ -1,0 +1,52 @@
+{
+    "manifest_version": 3,
+    "name": "ChessMint",
+    "short_name": "ChessMint",
+    "icons": {
+        "16": "dist/img/logo-16.png",
+        "48": "dist/img/logo-48.png",
+        "128": "dist/img/logo-128.png"
+    },
+    "version": "1.0.0",
+    "description": "An extension for Chess.com, Lichess.org, and WorldChess.com.",
+    "background": {
+        "service_worker": "dist/js/background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "dist/js/loader.js"
+            ],
+            "css": [
+                "dist/css/depthbar.css",
+                "dist/css/evalbar.css",
+                "dist/css/material-icon.css"
+            ],
+            "matches": [
+                "https://www.chess.com/*",
+                "https://worldchess.com/*",
+                "https://lichess.org/*"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "action": {
+        "default_popup": "dist/html/options.html"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "dist/js/chessmint.js"
+            ],
+            "matches": [
+                "https://www.chess.com/*",
+                "https://worldchess.com/*",
+                "https://lichess.org/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "storage"
+    ]
+}
