@@ -1,23 +1,3 @@
-// // Saves options to chrome.storage
-// function save_options()
-// {
-//     var color = document.getElementById('color').value;
-//     var likesColor = document.getElementById('like').checked;
-//     chrome.storage.sync.set({
-//         favoriteColor: color,
-//         likesColor: likesColor
-//     }, function ()
-//     {
-//         // Update status to let user know options were saved.
-//         var status = document.getElementById('status');
-//         status.textContent = 'Options saved.';
-//         setTimeout(function ()
-//         {
-//             status.textContent = '';
-//         }, 750);
-//     });
-// }
-
 var inputDepth: HTMLInputElement;
 var inputThreads: HTMLInputElement;
 var inputShowHints: HTMLInputElement;
@@ -26,6 +6,7 @@ var inputDepthBar: HTMLInputElement;
 var inputEvalBar: HTMLInputElement;
 var inputAutoMove: HTMLInputElement;
 var inputUseNNUE: HTMLInputElement;
+var inputUciElo: HTMLInputElement;
 
 const DefaultExtensionOptions: ExtensionOptions = {
     depth: 15,
@@ -36,6 +17,9 @@ const DefaultExtensionOptions: ExtensionOptions = {
     evaluation_bar: true,
     use_nnue: false,
     auto_move: false,
+    uci_elo: 3200,
+    uci_limit_strength: false,
+    opponent_elo: 1500,
     anti_ban_enabled: true,
     anti_ban_min_delay: 500,
     anti_ban_max_delay: 2000,
@@ -56,11 +40,13 @@ function RestoreOptions()
         inputEvalBar.checked = options.evaluation_bar;
         inputUseNNUE.checked = options.use_nnue;
         inputAutoMove.checked = options.auto_move;
+        inputUciElo.value = options.uci_elo.toString();
 
         let event = new CustomEvent("input");
         (event as any).disableUpdate = true;
         inputDepth.dispatchEvent(event);
         inputThreads.dispatchEvent(event);
+        inputUciElo.dispatchEvent(event);
     });
 }
 
@@ -75,6 +61,9 @@ function OnOptionsChange()
         evaluation_bar: inputEvalBar.checked,
         use_nnue: inputUseNNUE.checked,
         auto_move: inputAutoMove.checked,
+        uci_elo: parseInt(inputUciElo.value),
+        uci_limit_strength: false,
+        opponent_elo: 1500,
         anti_ban_enabled: true,
         anti_ban_min_delay: 500,
         anti_ban_max_delay: 2000,
@@ -90,15 +79,6 @@ function OnOptionsChange()
             chrome.tabs.sendMessage(tab.id as number, { type: "UpdateOptions", data: options });
         })
     });
-    // chrome.tabs.query({ active: true, currentWindow: true }, function (tabs)
-    // {
-    //     if (tabs[0].id === undefined) return;
-
-    //     chrome.tabs.sendMessage(tabs[0].id, { type: "getText" }, function (response)
-    //     {
-    //         alert(response)
-    //     });
-    // });
 }
 
 function InitOptions()
@@ -111,6 +91,7 @@ function InitOptions()
     inputEvalBar = document.getElementById("option-evaluation-bar") as HTMLInputElement;
     inputUseNNUE = document.getElementById("option-use-nnue") as HTMLInputElement;
     inputAutoMove = document.getElementById("option-auto-move") as HTMLInputElement;
+    inputUciElo = document.getElementById("option-uci-elo") as HTMLInputElement;
 
     const sliderProps = {
         fill: "#2CA137",

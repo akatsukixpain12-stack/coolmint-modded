@@ -1,4 +1,3 @@
-
 type TEventType =
     'Create' |
     'DeletePosition' |
@@ -261,6 +260,9 @@ interface ExtensionOptions
     evaluation_bar: boolean;
     use_nnue: boolean;
     auto_move: boolean;
+    uci_elo: number;
+    uci_limit_strength: boolean;
+    opponent_elo: number;
     anti_ban_enabled: boolean;
     anti_ban_min_delay: number;
     anti_ban_max_delay: number;

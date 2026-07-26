@@ -5,7 +5,7 @@ module.exports = {
     mode: "production",
     entry: {
         background: "./src/background.ts",
-        chessmint: "./src/chessmint.ts",
+        chessmint: "./src/coolmint.ts",
         interfaces: "./src/interfaces.ts",
         loader: "./src/loader.ts",
         options: "./src/options.ts",
